@@ -3,14 +3,7 @@
 
 ### 功能：权限分页查找
 #### 接口：{host}/xhgj/ backend/permission/list
-输入参数：
-|Follow Me|
-|---|
-|[知 乎][zhihu]
-|[微 博][weibo]
-|[简书][jianshu]
-|[CSDN][csdn]
-
+###### 输入参数：
 
 |键|值|描述|
 |---|---|---|
