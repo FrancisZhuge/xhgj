@@ -1,9 +1,8 @@
 # xhgj
-西湖国际主站
+# 西湖国际主站
 
-权限：
-1. 功能：权限分页查找
-接口：{host}/xhgj/ backend/permission/list
+# 功能：权限分页查找
+## 接口：{host}/xhgj/ backend/permission/list
 输入参数：
 键	值	描述
 searchPermission	“xhgj”	查询字段（非必须）
