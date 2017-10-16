@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <!-- 使用缓存 -->
+        <setting name="cacheEnabled" value="true"/>
+        <!--连接超时时间-->
+        <setting name="defaultStatementTimeout" value="3000"/>
+        <!--是否使用驼峰-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--使用使用主键回填策略-->
+        <setting name="useGeneratedKeys" value="true"/>
+    </settings>
+
+    <!-- Continue going here -->
+
+</configuration>
