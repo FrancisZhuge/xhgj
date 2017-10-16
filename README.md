@@ -74,7 +74,7 @@
 键|值|描述|
 |---|---|---|
 |permission|“xhgj.xhgj02.company01.view”|权限名称|
-permission|“西湖国际，西湖国际二号楼，公司1”|查询的页面页号（从0开始）|
+|description|“西湖国际，西湖国际二号楼，公司1”|查询的页面页号（从0开始）|
 
 ##### 输出参数：
 如果permission为空
