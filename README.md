@@ -5,7 +5,7 @@
 #### 接口：{host}/xhgj/ backend/permission/list
 输入参数：
 |键|值|描述|
-|----|----|----|
+|---|---|---|
 |searchPermission|“xhgj”，查询字段（非必须）|
 |pageNo|0|查询的页面页号（从0开始）|
 pageSize|5|查询的页面大小|
