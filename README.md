@@ -7,9 +7,9 @@
 
 |键|值|描述|
 |---|---|---|
-|searchPermission|“xhgj”|查询字段（非必须）
-|pageNo|0|查询的页面页号（从0开始）
-pageSize|5|查询的页面大小
+|searchPermission|“xhgj”|查询字段（非必须）|
+|pageNo|0|查询的页面页号（从0开始）|
+pageSize|5|查询的页面大小|
 
 ###### 输出：
 如果服务器出错
@@ -19,6 +19,7 @@ pageSize|5|查询的页面大小
 }
 ```
 如果服务器正常
+``` java
 {
     "code": 200,
     "data": {
@@ -63,13 +64,17 @@ pageSize|5|查询的页面大小
         "searchPermission": ""
     }
 }
+```
 
-2. 功能：增加一个权限
-接口：{host}/xhgj/ backend/permission/add
-输入参数：
-键	值	描述
-permission	“xhgj.xhgj02.company01.view”	权限名称
-permission	“西湖国际，西湖国际二号楼，公司1”	查询的页面页号（从0开始）
+### 功能：增加一个权限
+#### 接口：{host}/xhgj/ backend/permission/add
+##### 输入参数：
+
+
+键|值|描述|
+|---|---|---|
+|permission|“xhgj.xhgj02.company01.view”|权限名称|
+permission|“西湖国际，西湖国际二号楼，公司1”|查询的页面页号（从0开始）|
 
 返回：
 如果permission为空
