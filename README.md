@@ -76,58 +76,79 @@ pageSize|5|查询的页面大小|
 |permission|“xhgj.xhgj02.company01.view”|权限名称|
 permission|“西湖国际，西湖国际二号楼，公司1”|查询的页面页号（从0开始）|
 
-返回：
+##### 输出参数：
 如果permission为空
+```java
 {
     "code": 400
 }
+```
 如果permission存在
+```java
 {
     "code": 500,
     "error": "该权限已经存在"
 }
+```
 如果服务器出错
+```java
 {
     "code": 500
 }
+```
 如果成功保存
+```java
 {
     "code": 200
 }
+```
+
+### 功能：根据主键删除权限
+#### 接口：{bathPath}/{园区名称(名称)}/ backend/permission/delete
+##### 输入参数：
 
 
-3. 功能：根据主键删除权限
-接口：{bathPath}/{园区名称(名称)}/ backend/permission/delete
-输入参数：
-键	值	描述
-id	1	Id
 
-输出：
+键|值|描述
+|---|---|
+id|1|Id|
+
+##### 输出：
 删除成功
+```java
 {
     "code": 200
 }
+```
 删除失败
+```java
 {
     "code": 500
 }
+```
+
+### 功能：根据主键更新权限的状态
+#### 接口：{bathPath}/{园区名称(名称)}/ backend/permission/change
+##### 输入参数：
 
 
-4. 功能：根据主键更新权限的状态
-接口：{bathPath}/{园区名称(名称)}/ backend/permission/change
-输入参数：
-键	值	描述
-id	1	Id
+键|值|描述|
+|---|---|
+id|1|Id|
 
-输出：
+##### 输出：
 删除成功
+```java
 {
     "code": 200
 }
+```
 删除失败
+```java
 {
     "code": 500
 }
+```
 
 
 
