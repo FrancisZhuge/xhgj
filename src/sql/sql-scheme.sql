@@ -12,7 +12,7 @@ create table customer_info(
   building_id varchar(255) null,
   password varchar(255) null,
   salt varchar(255) null,
-  `lock` bool DEFAULT TRUE,
+  locked bool DEFAULT TRUE,
   CONSTRAINT pk_customer_info PRIMARY KEY (id)
 )CHARSET=utf8 ENGINE=InnoDB;
 CREATE UNIQUE INDEX idx_sys_users_username ON customer_info(username);
