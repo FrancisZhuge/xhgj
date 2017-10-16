@@ -7,15 +7,17 @@
 
 |键|值|描述|
 |---|---|---|
-|searchPermission|“xhgj”，查询字段（非必须）
+|searchPermission|“xhgj”|查询字段（非必须）
 |pageNo|0|查询的页面页号（从0开始）
 pageSize|5|查询的页面大小
 
-输出：
+###### 输出：
 如果服务器出错
+```java
 {
 	"code":500
 }
+```
 如果服务器正常
 {
     "code": 200,
