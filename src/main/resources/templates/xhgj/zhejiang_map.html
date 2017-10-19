@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>浙江省地图</title>
+    <script th:src="@{js/jquery.min.js}"></script>
+    <script th:src="@{bootstrap/js/bootstrap.js}"></script>
+    <script th:src="@{js/echarts/echarts.js}"></script>
+    <script th:src="@{js/echarts/zhejiang.js}"></script>
+    <script th:src="@{js/echarts/huzho
+    u.js}"></script>
+
+    <link th:href="@{bootstrap/css/bootstrap.min.css}" type="text/css" rel="stylesheet" />
+    <link th:href="@{css/img/logo.ico}" rel="icon"  />
+    <link th:href="@{css/nav/nav-style.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{css/main.css}" type="text/css" rel="stylesheet" />
+    <link th:href="@{css/font-awesome.min.css}" type="text/css" rel="stylesheet" />
+    <link th:href="@{css/nav/newmain.css}" rel="stylesheet" />
+
+</head>
+<body class="bg">
+<div class="wrapper">
+    <div class="main">
+        <!--导航条-->
+        <div th:replace="xhgj/common/nav :: header"></div>
+<div class="container">
+    <div class="row">
+        <div id="map" class="center-block" style="width: 80%; height: 600px; border: 1px solid #ccc; padding: 10px;">
+
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<div th:replace="xhgj/common/footer :: footer"></div>
+<script type="text/javascript">
+    $(function () {
+        var chart = echarts.init(document.getElementById("map"));
+        chart.setOption(option ={
+            title: {
+                text: '浙江省',
+                subtext: '浙江'
+            },
+//            visualMap: {
+//                show:false,
+//                min: 0,
+//                max: 100,
+//                left: 'left',
+//                top: 'bottom',
+//                text: ['高', '低'], // 文本，默认为数值文本
+//                calculable: true
+//            },
+            geo:{
+//                type:'map',
+//                mapType:"huzhou"
+                map:"浙江",
+//                left: '50%',
+//                top: '10%',
+                width: '55%',
+                height:'85%',
+                label: {
+                    normal: {
+                        show: true
+                    }
+                },
+                itemStyle:{
+                    normal: {
+                        borderColor: '#389BB7',
+                        areaColor: '#fff',
+                        label:{
+                            show:true
+                        }
+                    },
+                    emphasis: {
+                        areaColor: '#389BB7',
+                        borderWidth: 0
+                    }
+                }
+            },
+            series:[{
+                name:"园区",
+                type:'effectScatter',
+                coordinateSystem:'geo',
+                zlevel:2,
+                rippleEffect:{
+                    brushType:'stroke'
+                },
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'bottom',
+                        formatter: '{b}'
+                    }
+                },
+                symbolSize:36,
+                itemStyle:{
+                  normal:{
+                      color:'green'
+                  }
+                },
+                data:[
+                    {name:'嘉兴市',value:[120.750865,30.762653]},{name:'湖州市',value:[120.102398,30.867198]},{name:'杭州',value:[120.19,30.26]}]
+            }]
+        });
+        chart.on("click",function (params) {
+            if(params.componentType === "series"&&params.name == "湖州市"){
+//                alert("有待开发");
+//                location.href ="jiaxing/index_jiaxing.html"
+            }if ( params.componentType === "series"&&params.name == "嘉兴市"){
+//                location.href ="http://www.jnhbzhy.com/WisdomPark/"
+                 alert("有待开发");
+//                location.href ="jiaxing/index_jiaxing.html"
+            }if ( params.componentType === "series"&&params.name == "杭州"){
+//                location.href ="http://www.jnhbzhy.com/WisdomPark/"
+                location.href = "main";
+            }
+        })
+    });
+</script>
+<script type="text/javascript" th:src="@{js/nav.js}"></script>
+</body>
+</html>

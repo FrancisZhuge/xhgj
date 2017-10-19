@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8"/>
+    <title>智慧园区服务</title>
+    <link rel="stylesheet" th:href="@{css/nav/swipebox.css}"/>
+    <script th:src="@{js/jquery.min.js}"></script>
+    <script th:src="@{bootstrap/js/bootstrap.js}"></script>
+    <script th:src="@{js/common.js}"></script>
+    <script th:src="@{js/nav/jquery.swipebox.min.js}"></script>
+    <script th:src="@{js/nav/owl.carousel.js}"></script>
+    <link rel="icon" th:href="@{css/img/logo.ico}"/>
+    <!--圆形导航-->
+    <link th:href="@{css/nav/style.css}" rel='stylesheet' type='text/css'/>
+    <link th:href="@{bootstrap/css/bootstrap.css}" type="text/css" rel="stylesheet"/>
+    <link th:href="@{css/main.css}" type="text/css" rel="stylesheet"/>
+    <link th:href="@{css/font-awesome.min.css}" type="text/css" rel="stylesheet"/>
+    <link th:href="@{css/nav/owl.carousel.css}" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" th:href="@{css/nav/nav-style.css}"/>
+    <!--新增导航样式-->
+    <link th:href="@{css/nav/newmain.css}" type="text/css" rel="stylesheet"/>
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo3").owlCarousel({
+                items: 6,
+                lazyLoad: true,
+                autoPlay: true,
+                navigation: false,
+                pagination: false
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $(".swipebox").swipebox();
+        });
+    </script>
+</head>
+
+<body class="bg">
+<div class="wrapper">
+    <div class="main">
+        <!--导航条-->
+        <div th:replace="xhgj/common/nav :: header"></div>
+        <div class="container">
+            <div class="row ">
+                <div class=" ">
+                    <a href="javascript:void(0)">首页</a> >>
+                    <a href="javascript:void(0)">绿色•低碳•能源•大数据平台</a> >>
+                    <a href="javascript:void(0)">智慧园区服务</a>
+                </div>
+            </div>
+            <div class="column_2">
+                <div class="row">
+                    <div class="col-md-3 col-xs-6 col-lg-3">
+                        <div class="box_2">
+                            <div class="inner_row ">
+                                <!--<i class="fa fa-fa-clock-o fa-clock-o icon_1"> </i>-->
+                                <span class="glyphicon glyphicon-dashboard icon_2" aria-hidden="true"></span>
+                                <h2>智慧招商</h2>
+                                <h3>资源管理</h3>
+                                <h3>项目管理</h3>
+                                <h3>数字沙盘</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6 col-lg-3">
+                        <div class="box_2">
+                            <div class="inner_row">
+                                <span class="glyphicon glyphicon-edit icon_2" aria-hidden="true"></span>
+                                <h2>智慧管理</h2>
+                                <h3>物业管理</h3>
+                                <h3>安防管理</h3>
+                                <h3>消防管理</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6 col-lg-3">
+                        <div class="box_2">
+                            <div class="inner_row">
+                                <span class="glyphicon glyphicon-bell icon_2" aria-hidden="true"></span>
+                                <h2>智慧服务</h2>
+                                <h3>一站式入驻服务</h3>
+                                <h3>园企互动服务</h3>
+                                <h3>人才金融服务</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6 col-lg-3">
+                        <div class="box_2">
+                            <div class="inner_row">
+                                <span class="glyphicon glyphicon-retweet icon_2" aria-hidden="true"></span>
+                                <h2>智慧产业</h2>
+                                <h3>产业云平台</h3>
+                                <h3>产业趋势</h3>
+                                <h3>产业指数</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer-->
+<div th:replace="xhgj/common/footer :: footer"></div>
+<script type="text/javascript" th:src="@{js/nav.js}"></script>
+</body>
+</html>
