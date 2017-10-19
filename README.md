@@ -441,6 +441,9 @@
         "data": {
             "items": [
                 {
+                    "areaId": 1,
+                    "buildingId": 1,
+                    "credentialsSalt": "admin8d78869f470951332959580424d4bf4f",
                     "id": 1,
                     "locked": false,
                     "password": "d3c59d25033dbf980d29554025c23a75",
@@ -448,6 +451,9 @@
                     "username": "admin"
                 },
                 {
+                    "areaId": 1,
+                    "buildingId": 1,
+                    "credentialsSalt": "admin18d78869f470951332959580424d4bf4f",
                     "id": 2,
                     "locked": false,
                     "password": "d3c59d25033dbf980d29554025c23a75",
@@ -455,6 +461,9 @@
                     "username": "admin1"
                 },
                 {
+                    "areaId": 1,
+                    "buildingId": 1,
+                    "credentialsSalt": "admin28d78869f470951332959580424d4bf4f",
                     "id": 3,
                     "locked": false,
                     "password": "d3c59d25033dbf980d29554025c23a75",
@@ -462,6 +471,9 @@
                     "username": "admin2"
                 },
                 {
+                    "areaId": 1,
+                    "buildingId": 1,
+                    "credentialsSalt": "admin38d78869f470951332959580424d4bf4f",
                     "id": 4,
                     "locked": false,
                     "password": "d3c59d25033dbf980d29554025c23a75",
@@ -469,17 +481,56 @@
                     "username": "admin3"
                 },
                 {
+                    "areaId": 1,
+                    "buildingId": 1,
+                    "credentialsSalt": "admin48d78869f470951332959580424d4bf4f",
                     "id": 5,
-                    "locked": false,
+                    "locked": true,
                     "password": "d3c59d25033dbf980d29554025c23a75",
                     "salt": "8d78869f470951332959580424d4bf4f",
                     "username": "admin4"
+                },
+                {
+                    "credentialsSalt": "admin58d78869f470951332959580424d4bf4f",
+                    "id": 6,
+                    "locked": false,
+                    "password": "d3c59d25033dbf980d29554025c23a75",
+                    "salt": "8d78869f470951332959580424d4bf4f",
+                    "username": "admin5"
+                },
+                {
+                    "areaId": 1,
+                    "buildingId": 1,
+                    "credentialsSalt": "test018d78869f470951332959580424d4bf4f",
+                    "id": 7,
+                    "locked": false,
+                    "password": "d3c59d25033dbf980d29554025c23a75",
+                    "salt": "8d78869f470951332959580424d4bf4f",
+                    "username": "test01"
+                },
+                {
+                    "areaId": 1,
+                    "buildingId": 1,
+                    "credentialsSalt": "test028d78869f470951332959580424d4bf4f",
+                    "id": 8,
+                    "locked": false,
+                    "password": "d3c59d25033dbf980d29554025c23a75",
+                    "salt": "8d78869f470951332959580424d4bf4f",
+                    "username": "test02"
+                },
+                {
+                    "credentialsSalt": "test002c0674683979081d9b47c96a29f19d514",
+                    "id": 10,
+                    "locked": true,
+                    "password": "69f19ce12e6d01c41d08bd6aa861ac8a",
+                    "salt": "c0674683979081d9b47c96a29f19d514",
+                    "username": "test002"
                 }
             ],
             "pageNo": 0,
-            "pageSize": 5,
-            "totalCount": 8,
-            "totalPageCount": 2
+            "pageSize": 10,
+            "totalCount": 9,
+            "totalPageCount": 1
         },
         "searchUsername": ""
     }
