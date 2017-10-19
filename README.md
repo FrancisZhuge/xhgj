@@ -280,3 +280,111 @@
 }
 ```
 
+
+
+### 功能：获取指定的roleId的权限信息
+#### 接口：{bathPath}/{园区名称(名称)}/ backend/role/permissionsWithSelected
+##### 输入参数：
+
+
+
+
+|键|值|描述|
+|---|---|---|
+|roleid|1|role的id|
+
+##### 输出：
+服务器报错
+```java
+{
+    "code": 500
+}
+```
+服务器成功
+```java
+{
+    "code": 200,
+    "data": {
+        "permissions": [
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 1,
+                "permission": "xhgj.xhgj01.company01.view",
+                "selected": true
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 2,
+                "permission": "xhgj.xhgj02.company01.view",
+                "selected": false
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 3,
+                "permission": "xhgj.xhgj03.company01.view",
+                "selected": false
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 4,
+                "permission": "xhgj.xhgj04.company01.view",
+                "selected": false
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 5,
+                "permission": "xhgj.xhgj05.company01.view",
+                "selected": false
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 6,
+                "permission": "xhgj.xhgj06.company01.view",
+                "selected": false
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 7,
+                "permission": "xhgj.xhgj07.company01.view",
+                "selected": false
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 8,
+                "permission": "xhgj.xhgj08.company01.view",
+                "selected": false
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 9,
+                "permission": "xhgj.xhgj09.company01.view",
+                "selected": false
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 10,
+                "permission": "xhgj.xhgj10.company01.view",
+                "selected": false
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 11,
+                "permission": "xhgj.xhgj11.company01.view",
+                "selected": false
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 12,
+                "permission": "xhgj.xhgj12.company01.view",
+                "selected": false
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 13,
+                "permission": "xhgj.xhgj13.company01.view",
+                "selected": false
+            }
+        ]
+    }
+}
+```
