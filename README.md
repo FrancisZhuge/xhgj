@@ -152,4 +152,70 @@
 ```
 
 
+### 功能：角色分页查找
+#### 接口：{host}/xhgj/ backend/role/list
+###### 输入参数：
+
+|键|值|描述|
+|---|---|---|
+|searchRole|“xhgj”|查询字段（非必须）|
+|pageNo|0|查询的页面页号（从0开始）|
+|pageSize|5|查询的页面大小|
+
+###### 输出：
+如果服务器出错
+```java
+{
+	"code":500
+}
+```
+如果服务器正常
+``` java
+{
+    "code": 200,
+    "data": {
+        "data": {
+            "items": [
+                {
+                    "available": false,
+                    "description": "西湖国际，西湖国际01，公司01",
+                    "id": 6,
+                    "role": "xhgj.xhgj01.company06"
+                },
+                {
+                    "available": false,
+                    "description": "西湖国际，西湖国际01，公司01",
+                    "id": 7,
+                    "role": "xhgj.xhgj01.company07"
+                },
+                {
+                    "available": false,
+                    "description": "西湖国际，西湖国际01，公司01",
+                    "id": 8,
+                    "role": "xhgj.xhgj01.company08"
+                },
+                {
+                    "available": false,
+                    "description": "西湖国际，西湖国际01，公司01",
+                    "id": 9,
+                    "role": "xhgj.xhgj01.company09"
+                },
+                {
+                    "available": false,
+                    "description": "西湖国际，西湖国际01，公司01",
+                    "id": 10,
+                    "role": "xhgj.xhgj02.company01"
+                }
+            ],
+            "pageNo": 1,
+            "pageSize": 5,
+            "totalCount": 27,
+            "totalPageCount": 6
+        },
+        "searchRole": ""
+    }
+}
+```
+
+
 
