@@ -1,0 +1,17 @@
+{
+  "code": 200,
+  "data": [
+    {
+      "companyId": 1,
+      "companyName": "3#电梯10B2配电室1"
+    },
+    {
+      "companyId": 2,
+      "companyName": "1#电梯9B5配电室"
+    },
+    {
+      "companyId": 3,
+      "companyName": "E座二楼强电室"
+    }
+  ]
+}

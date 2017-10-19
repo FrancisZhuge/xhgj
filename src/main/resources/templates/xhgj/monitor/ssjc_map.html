@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="utf-8"/>
+    <script th:src="@{js/map/d3v4.js}"></script>
+    <script th:src='@{js/map/d3tip.js}'></script>
+    <script th:src="@{js/jquery.min.js}"></script>
+    <script th:src="@{js/map/huzhou_factory.js}"></script>
+    <script th:src="@{bootstrap/js/bootstrap.js}"></script>
+    <script th:src="@{js/ssjc_map.js}"></script>
+    <link th:href="@{css/img/logo.ico}" rel="icon"/>
+    <!--新增导航样式-->
+    <link th:href="@{css/nav/newmain.css}" rel="stylesheet"/>
+    <link th:href="@{css/main.css}" type="text/css" rel="stylesheet"/>
+    <link th:href="@{bootstrap/css/bootstrap.css}" type="text/css" rel="stylesheet"/>
+    <link th:href="@{css/map/d3tip.css}" type="text/css" rel="stylesheet"/>
+    <link th:href="@{css/nav/nav-style.css}" rel="stylesheet" type="text/css"/>
+    <title>园区模拟图</title>
+</head>
+
+<body class="bg">
+<div class="wrapper">
+    <div class="main">
+        <!--导航条-->
+        <div th:replace="xhgj/common/nav :: header"></div>
+        <div class="container-fluid">
+            <div id='container' style='width:1000px;height:800px ' class="center-block">
+                <svg id='containerSvg'></svg>
+            </div>
+            <br class="clear"/>
+        </div>
+    </div>
+</div>
+<!--载入footer-->
+<div th:replace="xhgj/common/footer :: footer"></div>
+<!--请求地图数据-->
+<!--<script type="text/javascript">-->
+    <!--$(document).ready(function () {-->
+        <!--var base = document.getElementById("base").href;-->
+        <!--var url = base + '/css/img/map/huzhou_3d.jpeg';-->
+        <!--$.ajax({-->
+            <!--type: 'GET',-->
+            <!--dataType: 'json',-->
+            <!--async: false,-->
+            <!--url: base + '/company/mapInfo',-->
+            <!--success: function (myJson) {-->
+                <!--drawFactory('container', myJson[0], 10000, url)-->
+            <!--},-->
+            <!--error: function () {-->
+                <!--console.log("json信息读取失败");-->
+            <!--}-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
+<script type="text/javascript" th:src="@{js/nav.js}"></script>
+</body>
+</html>

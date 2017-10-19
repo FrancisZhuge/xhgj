@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+
+<head><title>中节能（西湖国际）环保产业园</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=1, user-scalable=no">
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="description"
+          content="中国节能环保集团公司是唯一一家主业为节能减排、环境保护的中央企业。拥有各级子公司338家，上市公司5家，分布在国内近30个省市及境外近40个国家和地区，致力于成为质量优秀的科技型服务型跨国经营企业集团。">
+    <meta name="keywords" content="中国节能环保集团公司，中国节能，中国节能环保，www.cecep.cn"/>
+    <meta name="author" content="中国节能环保集团公司">
+    <link th:href="@{css/nav/newmain.css}" rel="stylesheet"/>
+    <link th:href="@{css/img/logo.ico}" rel="icon"/>
+    <link th:href="@{bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{font-awesome/css/font-awesome.css}" rel="stylesheet"/>
+    <link th:href="@{css/main.css}" rel="stylesheet"/>
+    <link th:href="@{css/nav/nav-style.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body class="bg">
+<div class="wrapper">
+    <div class="main">
+        <!--导航条-->
+        <div th:replace="xhgj/common/nav :: header"></div>
+        <div id='main-carousel' class="carousel slide" data-ride="carousel"><!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#main-carousel" data-slide-to="1"></li>
+                <li data-target="#main-carousel" data-slide-to="2"></li>
+                <li data-target="#main-carousel" data-slide-to="3"></li>
+                <li data-target="#main-carousel" data-slide-to="4"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="">
+                <div class="carousel-inner" role="listbox" style="margin: 0 auto ; ">
+                    <div class="item active height ">
+                        <a href='javascript:void (0)' title="湖州园区">
+                            <img th:src="@{css/img/backgrounds/b3.png}" class="img-responsive center-block"
+                                 alt="湖州园区">
+                        </a>
+                    </div>
+                    <div class="item height">
+                        <a href='javascript:void (0)' title="湖州园区">
+                            <img th:src="@{css/img/backgrounds/b1.png}" class="img-responsive center-block"
+                                 alt="湖州园区">
+                        </a>
+                    </div>
+                    <div class="item height">
+                        <a href='javascript:void (0)' title="湖州园区">
+                            <img th:src="@{css/img/backgrounds/b2.png}" class="img-responsive center-block"
+                                 alt="湖州园区">
+                        </a>
+                    </div>
+                    <div class="item height">
+                        <a href='javascript:void (0)' title="湖州园区">
+                            <img th:src="@{css/img/backgrounds/b3.png}" class="img-responsive " alt="湖州园区">
+                        </a>
+                    </div>
+                    <div class="item height">
+                        <a href='javascript:void (0)' title="湖州园区">
+                            <img th:src="@{css/img/backgrounds/b2.png}" class="img-responsive center-block"
+                                 alt="湖州园区">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Controls 左右箭头-->
+            <a class="left carousel-control" href="#main-carousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">上一张</span>
+            </a>
+            <a class="right carousel-control" href="#main-carousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">下一张</span>
+            </a>
+        </div>
+    </div>
+</div>
+<!--引入footer-->
+<div th:replace="xhgj/common/footer :: footer"></div>
+
+<script th:src='@{js/jquery.min.js}'></script>
+<script th:src="@{bootstrap/js/bootstrap.js}"></script>
+<!--[if IE 10]-->
+<!--<script src="http://s1.yuehetong.com/sitemedia/bootstrap-3.3.6/js/ie10-viewport-bug-workaround.js"></script>-->
+<![endif]-->
+<script src="../../../js/common.js"></script>
+<script type="text/javascript" th:src="@{js/nav.js}"></script>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        $('.carousel').carousel({
+            interval: 50000 * 36
+        });
+    });
+</script>
