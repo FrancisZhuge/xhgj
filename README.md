@@ -643,4 +643,129 @@ username不为空，且password不为空，但是账号已经存在
 {
     "code":200
 }
+```
+
+### 功能：获取指定的userId的角色信息
+#### 接口：{host}/xhgj/ backend/user/rolesWithSelected
+###### 输入参数：
+
+
+|键|值|描述|
+|---|---|---|
+|id|1|主键，必须有（后台检查）|
+
+
+##### 输出参数：
+如果id值没有
+```java
+{
+    "code": 400
+}
+```
+如果更改失败
+```java
+{
+    "code": 500
+}
+```
+如果成功
+```java
+{
+    "code": 200,
+    "data": {
+        "data": [
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 1,
+                "role": "xhgj.xhgj01.company01",
+                "selected": true
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 2,
+                "role": "xhgj.xhgj01.company02",
+                "selected": true
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 3,
+                "role": "xhgj.xhgj01.company03",
+                "selected": true
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 4,
+                "role": "xhgj.xhgj01.company04",
+                "selected": true
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 6,
+                "role": "xhgj.xhgj01.company05",
+                "selected": true
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 7,
+                "role": "xhgj.xhgj01.company06",
+                "selected": true
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 8,
+                "role": "xhgj.xhgj01.company07",
+                "selected": true
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 9,
+                "role": "xhgj.xhgj01.company08",
+                "selected": false
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 10,
+                "role": "xhgj.xhgj01.company09",
+                "selected": false
+            },
+            {
+                "description": "西湖国际，西湖国际01，公司01",
+                "id": 11,
+                "role": "xhgj.xhgj02.company01",
+                "selected": false
+            }
+        ]
+    }
+}
+```
+
+
+### 功能：获取指定的userId的角色信息
+#### 接口：{host}/xhgj/ backend/user/saveRoles
+###### 输入参数：
+
+
+|键|值|描述|
+|---|---|---|
+|userId|1|主键，必须有（后台检查）|
+|roleId|1 3 4|后台是用数组接收的，前端直接很多个复选框，name都叫roleId就可以了|
+##### 输出参数：
+如果id值没有
+```java
+{
+    "code": 400
+}
+```
+如果更改失败
+```java
+{
+    "code": 500
+}
+```
+如果成功
+```java
+{
+    "code": 200
+}
+```
 
