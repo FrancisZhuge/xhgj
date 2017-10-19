@@ -80,10 +80,11 @@ public class PermissionController {
             permissionService.savePermission(permission1);
             return ResponseUtil.responseOk();
         } catch (Exception e) {
-            LOGGER.error("[getAll] add permission failed",e);
+            LOGGER.error("[add] add permission failed",e);
             return ResponseUtil.responseServerError();
         }
     }
+
     @RequestMapping("/delete")
     @ResponseBody
     public String delete(@RequestParam("id") long id){

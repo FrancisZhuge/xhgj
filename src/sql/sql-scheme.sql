@@ -7,6 +7,7 @@
 DROP TABLE IF EXISTS user_info;
 create table user_info(
   id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
+  user_no VARCHAR(255) COMMENT '用户编号',
   username varchar(255) COMMENT '用户名',
   area_id BIGINT COMMENT '园区信息表主键',
   building_id BIGINT COMMENT '大楼信息表主键',
@@ -60,6 +61,7 @@ CREATE TABLE sys_roles_permissions (
 DROP TABLE IF EXISTS area_info;
 create table area_info(
   id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
+  area_no VARCHAR(255) NULL COMMENT '园区编号',
   area_name varchar(255) null COMMENT '园区名称（西湖国际，湖州）',
   city varchar(255) null COMMENT '所在城市',
   jigou varchar(255) null COMMENT '所属机构（中节能）',
@@ -71,6 +73,7 @@ create table area_info(
 DROP TABLE IF EXISTS building_info;
 create table building_info(
   id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
+  building_no VARCHAR(255) NULL  COMMENT '大楼编号',
   building_name varchar(255) null COMMENT '大楼名称',
   building_addr varchar(255) null COMMENT '地址',
   area_id BIGINT COMMENT '所在园区id',
@@ -78,10 +81,10 @@ create table building_info(
 )CHARSET=utf8 ENGINE=InnoDB;
 
 ##########客户-水电表对应表##########
-DROP TABLE IF EXISTS customer_meter_info;
-create table customer_meter_info(
+DROP TABLE IF EXISTS user_meter_info;
+create table user_meter_info(
   id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
-  customer_id BIGINT COMMENT '客户id',
+  user_id BIGINT COMMENT '用户id,对应用户信息表id',
   meter_type int null COMMENT '(0,水表，1电表）',
   meter_id varchar(255) null COMMENT '电表或水表号',
   CONSTRAINT pk_customer_meter_info PRIMARY KEY (id)
@@ -90,30 +93,23 @@ create table customer_meter_info(
 ##########电表信息表########
 DROP TABLE IF EXISTS power_meter_info;
 create table power_meter_info(
-  id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
-  power_meter_type_id varchar(255) null COMMENT '电表类型id',
+  id BIGINT AUTO_INCREMENT COMMENT '设置主键自增' ,
+  power_meter_no VARCHAR(255) NULL COMMENT '电表编号',
+  power_meter_type varchar(255) null COMMENT '电表类型',
   power_meter_name varchar(255) null COMMENT '电表名称',
   power_meter_addr varchar(255) null COMMENT '电表地址',
-  area_id BIGINT COMMENT '所在园区',
-  building_id varchar(255) COMMENT '所在大楼',
+  area_id BIGINT COMMENT '所在园区id,对应到area表主键',
+  building_id BIGINT COMMENT '所在大楼id，对应到building表主键',
   CONSTRAINT pk_customer_meter_info PRIMARY KEY (id)
 )CHARSET=utf8 ENGINE=InnoDB;
 
-##########电表读数表（最新一次last）########
-DROP TABLE IF EXISTS power_meter_laster_read;
-create table power_meter_laster_read(
-  id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
-  power_meter_para_id BIGINT COMMENT '参数类型id',
-  read_value varchar(255) null COMMENT '读数value',
-  read_time datetime null COMMENT '读数时间',
-  CONSTRAINT pk_power_meter_read_record PRIMARY KEY (id)
-)CHARSET=utf8 ENGINE=InnoDB;
 
 ##########电表类型-参数对应表###########
 DROP TABLE IF EXISTS power_meter_para_info;
 create table power_meter_para_info(
   id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
-  power_meter_type_id varchar(255) null COMMENT '电表类型',
+  power_meter_para_id BIGINT COMMENT '电表参数id',
+  power_meter_type varchar(255) null COMMENT '电表类型，对应电表信息表',
   power_meter_para_name varchar(255) null COMMENT '参数名称',
   CONSTRAINT pk_power_meter_para_info PRIMARY KEY (id)
 )CHARSET=utf8 ENGINE=InnoDB;
@@ -122,6 +118,7 @@ create table power_meter_para_info(
 DROP TABLE IF EXISTS power_meter_read_record;
 create table power_meter_read_record(
   id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
+  power_meter_id BIGINT COMMENT '电表id，对应power_meter_info id',
   power_meter_para_id BIGINT COMMENT '参数类型id',
   read_value varchar(255) null COMMENT '读数value',
   read_time datetime null COMMENT '读数时间',
@@ -132,28 +129,21 @@ create table power_meter_read_record(
 DROP TABLE IF EXISTS water_meter_info;
 create table water_meter_info(
   id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
-  water_meter_type_id varchar(255) COMMENT '水表类型',
+  water_meter_no BIGINT COMMENT '水表编号',
+  water_meter_type varchar(255) COMMENT '水表类型',
   water_meter_name varchar(255) null COMMENT '水表名称',
   area_id BIGINT COMMENT '所在园区',
   building_id BIGINT COMMENT '所在大楼',
   CONSTRAINT pk_water_meter_info PRIMARY KEY (id)
 )CHARSET=utf8 ENGINE=InnoDB;
 
-##########水表读数表（最新一次last）########
-DROP TABLE IF EXISTS water_meter_laster_read;
-create table water_meter_laster_read(
-  id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
-  water_meter_para_id BIGINT COMMENT '参数类型id',
-  read_value varchar(255) null COMMENT '读数value',
-  read_time datetime null COMMENT '读数时间',
-  CONSTRAINT pk_water_meter_laster_read PRIMARY KEY (id)
-)CHARSET=utf8 ENGINE=InnoDB;
 
 ##########水表类型-参数对应##########
 DROP TABLE IF EXISTS water_meter_para_info;
 create table water_meter_para_info(
   id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
-  water_meter_type_id varchar(255) null COMMENT '水表类型',
+  water_meter_para_id BIGINT COMMENT '参数id',
+  water_meter_type varchar(255) null COMMENT '水表类型',
   water_meter_para_name varchar(255) null COMMENT '参数名称',
   CONSTRAINT pk_water_meter_para_info PRIMARY KEY (id)
 )CHARSET=utf8 ENGINE=InnoDB;
@@ -162,6 +152,7 @@ create table water_meter_para_info(
 DROP TABLE IF EXISTS water_meter_read_record;
 create table water_meter_read_record(
   id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
+  water_meter_id BIGINT COMMENT '对应water id',
   water_meter_para_id BIGINT COMMENT '参数类型id',
   read_value varchar(255) null COMMENT '读数value',
   read_time datetime null COMMENT '读数时间',

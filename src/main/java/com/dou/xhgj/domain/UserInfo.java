@@ -1,32 +1,37 @@
-package com.dou.xhgj.domain.permission;
-
-import java.io.Serializable;
+package com.dou.xhgj.domain;
 
 /**
  * @Author: Francis Zhuge
- * @Description: 用户类
- * @Date: Created in 2017/10/15, 15:40
+ * @Description:
+ * @Date: Created in 2017/10/18, 19:17
  * @Modified By:
  * @Email: franciszhuge@163.com
  */
-public class User implements Serializable {
-    //主键
+public class UserInfo {
     private Long id;
-    //用户名
     private String username;
-    //密码
+    private Long areaId;
+    private Long buildingId;
     private String password;
-    //盐
     private String salt;
     //是否锁定，默认锁定
     private Boolean locked = Boolean.TRUE;
 
-    public User() {
+    public UserInfo() {
     }
 
-    public User(String username, String password) {
+    public UserInfo(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public UserInfo(String username, Long areaId, Long buildingId, String password, String salt, Boolean locked) {
+        this.username = username;
+        this.areaId = areaId;
+        this.buildingId = buildingId;
+        this.password = password;
+        this.salt = salt;
+        this.locked = locked;
     }
 
     public Long getId() {
@@ -45,6 +50,22 @@ public class User implements Serializable {
         this.username = username;
     }
 
+    public Long getAreaId() {
+        return areaId;
+    }
+
+    public void setAreaId(Long areaId) {
+        this.areaId = areaId;
+    }
+
+    public Long getBuildingId() {
+        return buildingId;
+    }
+
+    public void setBuildingId(Long buildingId) {
+        this.buildingId = buildingId;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -61,10 +82,6 @@ public class User implements Serializable {
         this.salt = salt;
     }
 
-    public String getCredentialsSalt() {
-        return username + salt;
-    }
-
     public Boolean getLocked() {
         return locked;
     }
@@ -73,26 +90,17 @@ public class User implements Serializable {
         this.locked = locked;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-
-        return id != null ? id.equals(user.id) : user.id == null;
-    }
-
-    @Override
-    public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+    public String getCredentialsSalt() {
+        return username + salt;
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserInfo{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
+                ", areaId='" + areaId + '\'' +
+                ", buildingId='" + buildingId + '\'' +
                 ", password='" + password + '\'' +
                 ", salt='" + salt + '\'' +
                 ", locked=" + locked +

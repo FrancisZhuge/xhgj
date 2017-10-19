@@ -63,4 +63,15 @@ public class ResponseUtil {
         ajaxBody.setCode(ResponseCode.S_OK);
         return ajaxBody.toString();
     }
+
+    /**
+     * 参数错误返回模板
+     * @return
+     */
+    public static String responseIllegalArgus(String error){
+        AjaxBody ajaxBody = new AjaxBody();
+        ajaxBody.setCode(ResponseCode.F_ILLEGAL_ARGUS);
+        ajaxBody.setError(error);
+        return ajaxBody.toString();
+    }
 }

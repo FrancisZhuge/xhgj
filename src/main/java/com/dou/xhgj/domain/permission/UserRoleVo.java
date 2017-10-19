@@ -3,7 +3,7 @@ package com.dou.xhgj.domain.permission;
 /**
  * @Author: Francis Zhuge
  * @Description:
- * @Date: Created in 2017/10/16, 9:49
+ * @Date: Created in 2017/10/19, 17:08
  * @Modified By:
  * @Email: franciszhuge@163.com
  */
