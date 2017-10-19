@@ -414,3 +414,74 @@
     "code": 500
 }
 ```
+
+
+### 功能：用户分页查找
+#### 接口：{host}/xhgj/ backend/user/list
+###### 输入参数：
+
+|键|值|描述|
+|---|---|---|
+|searchUsername|“admin”|查询字段（非必须）|
+|pageNo|0|查询的页面页号（从0开始）|
+|pageSize|5|查询的页面大小(默认是10)|
+
+###### 输出：
+如果服务器出错
+```java
+{
+	"code":500
+}
+```
+如果服务器正常
+``` java
+{
+    "code": 200,
+    "data": {
+        "data": {
+            "items": [
+                {
+                    "id": 1,
+                    "locked": false,
+                    "password": "d3c59d25033dbf980d29554025c23a75",
+                    "salt": "8d78869f470951332959580424d4bf4f",
+                    "username": "admin"
+                },
+                {
+                    "id": 2,
+                    "locked": false,
+                    "password": "d3c59d25033dbf980d29554025c23a75",
+                    "salt": "8d78869f470951332959580424d4bf4f",
+                    "username": "admin1"
+                },
+                {
+                    "id": 3,
+                    "locked": false,
+                    "password": "d3c59d25033dbf980d29554025c23a75",
+                    "salt": "8d78869f470951332959580424d4bf4f",
+                    "username": "admin2"
+                },
+                {
+                    "id": 4,
+                    "locked": false,
+                    "password": "d3c59d25033dbf980d29554025c23a75",
+                    "salt": "8d78869f470951332959580424d4bf4f",
+                    "username": "admin3"
+                },
+                {
+                    "id": 5,
+                    "locked": false,
+                    "password": "d3c59d25033dbf980d29554025c23a75",
+                    "salt": "8d78869f470951332959580424d4bf4f",
+                    "username": "admin4"
+                }
+            ],
+            "pageNo": 0,
+            "pageSize": 5,
+            "totalCount": 8,
+            "totalPageCount": 2
+        },
+        "searchUsername": ""
+    }
+}
+```
