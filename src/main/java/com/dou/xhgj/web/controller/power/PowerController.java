@@ -56,7 +56,4 @@ public class PowerController {
         ajaxBody.setData(powerLasterConsumeList);
         return ajaxBody.toString();
     }
-
-
-
 }

@@ -30,14 +30,14 @@ public class CompanyPowerConsumeServiceImpl implements CompanyPowerConsumeServic
     PowerConsumeInfoDao powerConsumeInfoDao;
     @Override
     public List<PowerTswkConsume> getPowerTswkConsumeByCompanyId(int companyId) {
-        List<CompanyPowerConusmeInfo> companyPowerConusmeInfoList = powerConsumeInfoDao.getTswkConsumeByCompanyId(companyId);
-        double fvalue = companyPowerConusmeInfoList.get(0).getReadValue();
+        List<PowerConusmeTswkZongInfo> powerConusmeTswkZongInfoList = powerConsumeInfoDao.getTswkConsumeByCompanyId(companyId);
+        double fvalue = powerConusmeTswkZongInfoList.get(0).getReadValue();
         List<PowerTswkConsume> powerTswkConsumeList = new ArrayList<>();
-        for(int i=1;i<companyPowerConusmeInfoList.size();i++){
+        for(int i = 1; i< powerConusmeTswkZongInfoList.size(); i++){
             PowerTswkConsume powerTswkConsume = new PowerTswkConsume();
             powerTswkConsume.setId(i);
-            powerTswkConsume.setValue(companyPowerConusmeInfoList.get(i).getReadValue()-fvalue);
-            fvalue = companyPowerConusmeInfoList.get(i).getReadValue();
+            powerTswkConsume.setValue(powerConusmeTswkZongInfoList.get(i).getReadValue()-fvalue);
+            fvalue = powerConusmeTswkZongInfoList.get(i).getReadValue();
             powerTswkConsumeList.add(powerTswkConsume);
             logger.info(String.valueOf(fvalue));
         }

@@ -7,16 +7,16 @@ package com.dou.xhgj.domain.power;
  * @Modified By:
  * @Email: qiaokekeshu@163.com
  */
-public class CompanyPowerConusmeInfo {
+public class PowerConusmeTswkZongInfo {
     String companyId;
     String powerMeterId;
     double readValue;
     String readDate;
     String readTime;
 
-    public CompanyPowerConusmeInfo() {
+    public PowerConusmeTswkZongInfo() {
     }
-    public CompanyPowerConusmeInfo(String companyId, String powerMeterId, double readValue, String readDate, String readTime) {
+    public PowerConusmeTswkZongInfo(String companyId, String powerMeterId, double readValue, String readDate, String readTime) {
         this.companyId = companyId;
         this.powerMeterId = powerMeterId;
         this.readValue = readValue;
@@ -66,7 +66,7 @@ public class CompanyPowerConusmeInfo {
 
     @Override
     public String toString() {
-        return "CompanyPowerConusmeInfo{" +
+        return "PowerConusmeTswkZongInfo{" +
                 "companyId='" + companyId + '\'' +
                 ", powerMeterId='" + powerMeterId + '\'' +
                 ", readValue='" + readValue + '\'' +
