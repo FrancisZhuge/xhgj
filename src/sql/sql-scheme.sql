@@ -169,6 +169,9 @@ CREATE TABLE power_info(
   building_id BIGINT DEFAULT NULL COMMENT '大楼id',
   company_id BIGINT DEFAULT NULL COMMENT '公司id',
   collector_id BIGINT DEFAULT NULL COMMENT '采集器id',
+  province_id BIGINT DEFAULT NULL COMMENT '省份的id',
+  city_id BIGINT DEFAULT NULL COMMENT '城市的id',
+  area_id BIGINT DEFAULT NULL COMMENT '地区的id',
   address VARCHAR(255) DEFAULT NULL COMMENT '地址',
   owner VARCHAR(255) DEFAULT NULL COMMENT '所有者',
   consumption VARCHAR(255) DEFAULT NULL COMMENT '用电名称',
@@ -279,7 +282,7 @@ CREATE TABLE power_meter_record(
 --
 DROP TABLE IF EXISTS province;
 CREATE TABLE IF NOT EXISTS province (
-  id int(11) NOT NULL auto_increment,
+  id BIGINT NOT NULL auto_increment,
   province_id int(11) NOT NULL,
   province varchar(20) NOT NULL,
   PRIMARY KEY  (id)
@@ -291,7 +294,7 @@ CREATE TABLE IF NOT EXISTS province (
 
 DROP TABLE IF EXISTS city;
 CREATE TABLE IF NOT EXISTS city (
-  id int(11) NOT NULL auto_increment,
+  id BIGINT NOT NULL auto_increment,
   city_id int(11) NOT NULL,
   city varchar(20) NOT NULL,
   father_id int(11) NOT NULL,
@@ -304,7 +307,7 @@ CREATE TABLE IF NOT EXISTS city (
 
 DROP TABLE IF EXISTS area;
 CREATE TABLE IF NOT EXISTS area(
-  id int(11) NOT NULL auto_increment,
+  id BIGINT NOT NULL auto_increment,
   area_id int(11) NOT NULL,
   area varchar(20) character set gbk NOT NULL,
   father_id int(11) NOT NULL,
