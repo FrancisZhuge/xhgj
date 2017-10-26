@@ -6,7 +6,6 @@ import com.dou.xhgj.domain.UserInfo;
 import com.dou.xhgj.domain.permission.UserRoleVo;
 import com.dou.xhgj.service.permission.UserService;
 import com.dou.xhgj.web.response.ResponseUtil;
-import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

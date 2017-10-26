@@ -1,5 +1,8 @@
 package com.dou.xhgj.domain;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import jdk.nashorn.internal.ir.annotations.Ignore;
+
 /**
  * @Author: Francis Zhuge
  * @Description:
@@ -9,6 +12,7 @@ package com.dou.xhgj.domain;
  */
 public class UserInfo {
     private Long id;
+    private String userNo;
     private String username;
     private Long areaId;
     private Long buildingId;
@@ -24,16 +28,7 @@ public class UserInfo {
         this.username = username;
         this.password = password;
     }
-
-    public UserInfo(String username, Long areaId, Long buildingId, String password, String salt, Boolean locked) {
-        this.username = username;
-        this.areaId = areaId;
-        this.buildingId = buildingId;
-        this.password = password;
-        this.salt = salt;
-        this.locked = locked;
-    }
-
+    @JSONField(name="id")
     public Long getId() {
         return id;
     }
@@ -42,6 +37,16 @@ public class UserInfo {
         this.id = id;
     }
 
+    @JSONField(name="userNo")
+    public String getUserNo() {
+        return userNo;
+    }
+
+    public void setUserNo(String userNo) {
+        this.userNo = userNo;
+    }
+
+    @JSONField(name="username")
     public String getUsername() {
         return username;
     }
@@ -50,6 +55,7 @@ public class UserInfo {
         this.username = username;
     }
 
+    @JSONField(name="areaId")
     public Long getAreaId() {
         return areaId;
     }
@@ -58,6 +64,7 @@ public class UserInfo {
         this.areaId = areaId;
     }
 
+    @JSONField(name="buildingId")
     public Long getBuildingId() {
         return buildingId;
     }
@@ -66,6 +73,7 @@ public class UserInfo {
         this.buildingId = buildingId;
     }
 
+    @JSONField(serialize = false)
     public String getPassword() {
         return password;
     }
@@ -74,6 +82,7 @@ public class UserInfo {
         this.password = password;
     }
 
+    @JSONField(serialize = false)
     public String getSalt() {
         return salt;
     }
@@ -82,6 +91,7 @@ public class UserInfo {
         this.salt = salt;
     }
 
+    @JSONField(name="locked")
     public Boolean getLocked() {
         return locked;
     }
@@ -90,6 +100,7 @@ public class UserInfo {
         this.locked = locked;
     }
 
+    @JSONField(serialize = false)
     public String getCredentialsSalt() {
         return username + salt;
     }
@@ -98,9 +109,10 @@ public class UserInfo {
     public String toString() {
         return "UserInfo{" +
                 "id=" + id +
+                ", userNo='" + userNo + '\'' +
                 ", username='" + username + '\'' +
-                ", areaId='" + areaId + '\'' +
-                ", buildingId='" + buildingId + '\'' +
+                ", areaId=" + areaId +
+                ", buildingId=" + buildingId +
                 ", password='" + password + '\'' +
                 ", salt='" + salt + '\'' +
                 ", locked=" + locked +

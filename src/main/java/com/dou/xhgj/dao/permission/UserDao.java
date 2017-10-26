@@ -21,8 +21,8 @@ public interface UserDao {
     String ROLE = "sys_roles";
     String PERMISSION = "sys_permissions";
     String ROLE_PERMISSIONS = "sys_roles_permissions";
-    String INSERT_FIELDS = "username, area_id, building_id, password, salt, locked";
-    String SELECT_FIELDS = "id, username, area_id as areaId, building_id as buildingId, password, salt, locked";
+    String INSERT_FIELDS = "user_no username, area_id, building_id, password, salt, locked";
+    String SELECT_FIELDS = "id, user_no as userNo, username, area_id as areaId, building_id as buildingId, password, salt, locked";
 
     /**
      * 查询总记录数
@@ -41,7 +41,7 @@ public interface UserDao {
     List<UserInfo> list(@Param("start") int start, @Param("limit") int limit);
 
     /**
-     * 根据条件查找总记录数
+     * 根据username查找总记录数
      * @param username
      * @return
      */
@@ -49,7 +49,7 @@ public interface UserDao {
     int countByUsername(@Param("username") String username);
 
     /**
-     * 根据rolename分页查找
+     * 根据username分页查找
      * @param role
      * @param start
      * @param limit
@@ -70,7 +70,7 @@ public interface UserDao {
      * 增加一个用户
      * @param userInfo
      */
-    @Insert({" insert into ", USER ," (", INSERT_FIELDS ,") values(#{userInfo.username},#{userInfo.areaId},#{userInfo.buildingId},#{userInfo.password},#{userInfo.salt},#{userInfo.locked})"})
+    @Insert({" insert into ", USER ," (", INSERT_FIELDS ,") values(#{userInfo.userNo}#{userInfo.username},#{userInfo.areaId},#{userInfo.buildingId},#{userInfo.password},#{userInfo.salt},#{userInfo.locked})"})
     @Options(useGeneratedKeys = true, keyProperty = "user.id")
     void saveUser(@Param("userInfo") UserInfo userInfo);
 
@@ -85,7 +85,7 @@ public interface UserDao {
      * 更新
      * @param userInfo
      */
-    @Update({" update ", USER ," set username=#{userInfo.username},area_id=#{userInfo.areaId},building_id=#{userInfo.buildingId},password=#{userInfo.password},salt=#{userInfo.salt},locked=#{userInfo.locked} where id=#{userInfo.id}"})
+    @Update({" update ", USER ," set user_no=#{userInfo.userNo} username=#{userInfo.username},area_id=#{userInfo.areaId},building_id=#{userInfo.buildingId},password=#{userInfo.password},salt=#{userInfo.salt},locked=#{userInfo.locked} where id=#{userInfo.id}"})
     void update(@Param("userInfo") UserInfo userInfo);
 
     /**
