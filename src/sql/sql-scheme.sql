@@ -171,7 +171,7 @@ CREATE TABLE power_info(
   collector_id BIGINT DEFAULT NULL COMMENT '采集器id',
   province_id BIGINT DEFAULT NULL COMMENT '省份的id',
   city_id BIGINT DEFAULT NULL COMMENT '城市的id',
-  area_id BIGINT DEFAULT NULL COMMENT '地区的id',
+  region_id BIGINT DEFAULT NULL COMMENT '地区的id',
   address VARCHAR(255) DEFAULT NULL COMMENT '地址',
   owner VARCHAR(255) DEFAULT NULL COMMENT '所有者',
   consumption VARCHAR(255) DEFAULT NULL COMMENT '用电名称',
