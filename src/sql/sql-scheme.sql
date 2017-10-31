@@ -90,97 +90,131 @@ create table user_meter_info(
   CONSTRAINT pk_customer_meter_info PRIMARY KEY (id)
 )CHARSET=utf8 ENGINE=InnoDB;
 
-##########电表信息表########
-DROP TABLE IF EXISTS power_meter_info;
-create table power_meter_info(
-  id BIGINT AUTO_INCREMENT COMMENT '设置主键自增' ,
-  power_meter_no VARCHAR(255) NULL COMMENT '电表编号',
-  power_meter_type varchar(255) null COMMENT '电表类型',
-  power_meter_name varchar(255) null COMMENT '电表名称',
-  power_meter_addr varchar(255) null COMMENT '电表地址',
-  area_id BIGINT COMMENT '所在园区id,对应到area表主键',
-  building_id BIGINT COMMENT '所在大楼id，对应到building表主键',
-  CONSTRAINT pk_customer_meter_info PRIMARY KEY (id)
-)CHARSET=utf8 ENGINE=InnoDB;
+--
+--    电表价格    power_price
+--
 
-
-##########电表类型-参数对应表###########
-DROP TABLE IF EXISTS power_meter_para_info;
-create table power_meter_para_info(
-  id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
-  power_meter_para_id BIGINT COMMENT '电表参数id',
-  power_meter_type varchar(255) null COMMENT '电表类型，对应电表信息表',
-  power_meter_para_name varchar(255) null COMMENT '参数名称',
-  CONSTRAINT pk_power_meter_para_info PRIMARY KEY (id)
-)CHARSET=utf8 ENGINE=InnoDB;
-
-##########电表读数记录表###########
-DROP TABLE IF EXISTS power_meter_read_record;
-create table power_meter_read_record(
-  id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
-  power_meter_id BIGINT COMMENT '电表id，对应power_meter_info id',
-  power_meter_para_id BIGINT COMMENT '参数类型id',
-  read_value varchar(255) null COMMENT '读数value',
-  read_time datetime null COMMENT '读数时间',
-  CONSTRAINT pk_power_meter_read_record PRIMARY KEY (id)
-)CHARSET=utf8 ENGINE=InnoDB;
-
-##########水表信息表###########
-DROP TABLE IF EXISTS water_meter_info;
-create table water_meter_info(
-  id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
-  water_meter_no BIGINT COMMENT '水表编号',
-  water_meter_type varchar(255) COMMENT '水表类型',
-  water_meter_name varchar(255) null COMMENT '水表名称',
-  area_id BIGINT COMMENT '所在园区',
-  building_id BIGINT COMMENT '所在大楼',
-  CONSTRAINT pk_water_meter_info PRIMARY KEY (id)
-)CHARSET=utf8 ENGINE=InnoDB;
-
-
-##########水表类型-参数对应##########
-DROP TABLE IF EXISTS water_meter_para_info;
-create table water_meter_para_info(
-  id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
-  water_meter_para_id BIGINT COMMENT '参数id',
-  water_meter_type varchar(255) null COMMENT '水表类型',
-  water_meter_para_name varchar(255) null COMMENT '参数名称',
-  CONSTRAINT pk_water_meter_para_info PRIMARY KEY (id)
-)CHARSET=utf8 ENGINE=InnoDB;
-
-##########水表读数记录表###########
-DROP TABLE IF EXISTS water_meter_read_record;
-create table water_meter_read_record(
-  id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
-  water_meter_id BIGINT COMMENT '对应water id',
-  water_meter_para_id BIGINT COMMENT '参数类型id',
-  read_value varchar(255) null COMMENT '读数value',
-  read_time datetime null COMMENT '读数时间',
-  CONSTRAINT pk_water_meter_read_record PRIMARY KEY (id)
-)CHARSET=utf8 ENGINE=InnoDB;
-
-
-#################电表记录##################
-DROP TABLE IF EXISTS power_info;
-CREATE TABLE power_info(
+DROP TABLE IF EXISTS power_price;
+CREATE TABLE power_price(
   id BIGINT AUTO_INCREMENT COMMENT '设置自增主键',
-  number VARCHAR(255) DEFAULT NULL COMMENT '电表编号',
-  area_id BIGINT DEFAULT NULL COMMENT '园区表id',
-  building_id BIGINT DEFAULT NULL COMMENT '大楼id',
-  company_id BIGINT DEFAULT NULL COMMENT '公司id',
-  collector_id BIGINT DEFAULT NULL COMMENT '采集器id',
+  description VARCHAR(255) COMMENT '描述',
+  available bool DEFAULT FALSE COMMENT '是否可获得 0-false-不可获得    1-true-可获得',
+  update_time DATETIME DEFAULT current_timestamp COMMENT '更新时间',
+  CONSTRAINT pk_power_price PRIMARY KEY (id)
+)CHARSET=utf8 ENGINE=InnoDB;
+
+--
+--    电表价格    water_price
+--
+
+DROP TABLE IF EXISTS water_price;
+CREATE TABLE water_price(
+  id BIGINT AUTO_INCREMENT COMMENT '设置自增主键',
+  description VARCHAR(255) COMMENT '描述',
+  available bool DEFAULT FALSE COMMENT '是否可获得 0-false-不可获得    1-true-可获得',
+  update_time DATETIME DEFAULT current_timestamp COMMENT '更新时间',
+  CONSTRAINT pk_water_price PRIMARY KEY (id)
+)CHARSET=utf8 ENGINE=InnoDB;
+
+--
+--    采集器    collector_info
+--
+DROP TABLE IF EXISTS collector_info;
+CREATE TABLE collector_info(
+  id BIGINT AUTO_INCREMENT COMMENT '设置自增主键',
+  number VARCHAR(255) DEFAULT NULL COMMENT '采集器编号',
   province_id BIGINT DEFAULT NULL COMMENT '省份的id',
   city_id BIGINT DEFAULT NULL COMMENT '城市的id',
   region_id BIGINT DEFAULT NULL COMMENT '地区的id',
   address VARCHAR(255) DEFAULT NULL COMMENT '地址',
+  area_id BIGINT DEFAULT NULL COMMENT '园区表id',
+  building_id BIGINT DEFAULT NULL COMMENT '大楼id',
+  detail_address VARCHAR(255) DEFAULT NULL COMMENT '详细地址',
+  power_water bool DEFAULT TRUE COMMENT '电表采集器或者水表采集器 0-false-水表采集器  1-true-电表采集器',
+  comment1 VARCHAR(255) DEFAULT NULL COMMENT '备注1',
+  comment2 VARCHAR(255) DEFAULT NULL COMMENT '备注2',
+  comment3 VARCHAR(255) DEFAULT NULL COMMENT '备注3',
+  CONSTRAINT pk_collector_info PRIMARY KEY (id)
+)CHARSET=utf8 ENGINE=InnoDB;
+
+
+--
+--    水表表记录表A   water_info
+--
+
+DROP TABLE IF EXISTS water_info;
+CREATE TABLE water_info(
+  id BIGINT AUTO_INCREMENT COMMENT '设置自增主键',
+  number VARCHAR(255) DEFAULT NULL COMMENT '电表编号',
+  price_id BIGINT DEFAULT NULL COMMENT '电费价格',
+  province_id BIGINT DEFAULT NULL COMMENT '省份的id',
+  city_id BIGINT DEFAULT NULL COMMENT '城市的id',
+  region_id BIGINT DEFAULT NULL COMMENT '地区的id',
+  address VARCHAR(255) DEFAULT NULL COMMENT '地址',
+  area_id BIGINT DEFAULT NULL COMMENT '园区表id',
+  building_id BIGINT DEFAULT NULL COMMENT '大楼id',
+  company_id BIGINT DEFAULT NULL COMMENT '公司id',
+  collector_id BIGINT DEFAULT NULL COMMENT '采集器id',
+  detail_address VARCHAR(255) DEFAULT NULL COMMENT '详细地址',
   owner VARCHAR(255) DEFAULT NULL COMMENT '所有者',
+  belong VARCHAR(255) DEFAULT NULL COMMENT '归属',
+  caliber VARCHAR(255) DEFAULT NULL COMMENT '口径',
+  state BOOL DEFAULT FALSE COMMENT '水表是否有效 0-false-该水表无效  1-true-该水表有效',
+  comment1 VARCHAR(255) DEFAULT NULL COMMENT '备注1',
+  comment2 VARCHAR(255) DEFAULT NULL COMMENT '备注2',
+  comment3 VARCHAR(255) DEFAULT NULL COMMENT '备注3',
+  CONSTRAINT pk_water_info PRIMARY KEY (id)
+)CHARSET=utf8 ENGINE=InnoDB;
+
+
+
+
+--
+--    电表记录表A   power_info
+--
+
+DROP TABLE IF EXISTS power_info;
+CREATE TABLE power_info(
+  id BIGINT AUTO_INCREMENT COMMENT '设置自增主键',
+  number VARCHAR(255) DEFAULT NULL COMMENT '电表编号',
+  price_id BIGINT DEFAULT NULL COMMENT '电费价格',
+  province_id BIGINT DEFAULT NULL COMMENT '省份的id',
+  city_id BIGINT DEFAULT NULL COMMENT '城市的id',
+  region_id BIGINT DEFAULT NULL COMMENT '地区的id',
+  address VARCHAR(255) DEFAULT NULL COMMENT '地址',
+  area_id BIGINT DEFAULT NULL COMMENT '园区表id',
+  building_id BIGINT DEFAULT NULL COMMENT '大楼id',
+  company_id BIGINT DEFAULT NULL COMMENT '公司id',
+  collector_id BIGINT DEFAULT NULL COMMENT '采集器id',
+  detail_address VARCHAR(255) DEFAULT NULL COMMENT '详细地址',
+  owner VARCHAR(255) DEFAULT NULL COMMENT '所有者',
+  belong VARCHAR(255) DEFAULT NULL COMMENT '归属',
   consumption VARCHAR(255) DEFAULT NULL COMMENT '用电名称',
   outgoing VARCHAR(255) DEFAULT NULL COMMENT '出线号',
+  rate INT DEFAULT NULL COMMENT '倍率',
+  state BOOL DEFAULT FALSE COMMENT '电表是否有效 0-false-该电表无效  1-true-该电表有效',
   comment1 VARCHAR(255) DEFAULT NULL COMMENT '备注1',
   comment2 VARCHAR(255) DEFAULT NULL COMMENT '备注2',
   comment3 VARCHAR(255) DEFAULT NULL COMMENT '备注3',
   CONSTRAINT pk_power_info PRIMARY KEY (id)
 )CHARSET=utf8 ENGINE=InnoDB;
+
+
+--
+--    电表记录表B   water_meter_record
+--
+DROP TABLE IF EXISTS water_meter_record;
+CREATE TABLE water_meter_record(
+  id BIGINT AUTO_INCREMENT COMMENT '设置主键自增',
+  power_info_id BIGINT DEFAULT NULL COMMENT 'power_info的主键字段',
+  consumption BIGINT DEFAULT NULL COMMENT '水表读数',
+  read_time DATETIME DEFAULT current_timestamp COMMENT '创建时间',
+  CONSTRAINT pk_water_meter_record PRIMARY KEY (id)
+)CHARSET=utf8 ENGINE=InnoDB;
+
+--
+--    电表记录表B   power_meter_record
+--
 
 DROP TABLE IF EXISTS power_meter_record;
 CREATE TABLE power_meter_record(
@@ -216,7 +250,7 @@ CREATE TABLE power_meter_record(
   by_kwhz FLOAT DEFAULT NULL COMMENT '本月总正向有功电能',
   by_kwhj FLOAT DEFAULT NULL COMMENT '本月尖正向有功电能',
   by_kwhf FLOAT DEFAULT NULL COMMENT '本月峰正向有功电能',
-  by_kwhp FLOAT DEFAULT NULL COMMENT '本月正向有功电能',
+  by_kwhp FLOAT DEFAULT NULL COMMENT '本月平正向有功电能',
   by_kwhg FLOAT DEFAULT NULL COMMENT '本月谷正向有功电能',
   by_hkwhz FLOAT DEFAULT NULL COMMENT '本月总反向有功电能',
   by_hkwhj FLOAT DEFAULT NULL COMMENT '本月尖反向有功电能',
@@ -278,7 +312,7 @@ CREATE TABLE power_meter_record(
 )CHARSET=utf8 ENGINE=InnoDB;
 
 --
---    表结构   province
+--    省表结构   province
 --
 DROP TABLE IF EXISTS province;
 CREATE TABLE IF NOT EXISTS province (
@@ -289,7 +323,7 @@ CREATE TABLE IF NOT EXISTS province (
 )CHARSET=utf8 ENGINE=InnoDB;
 
 --
---    表的结构   city
+--    市表结构   city
 --
 
 DROP TABLE IF EXISTS city;
@@ -302,7 +336,7 @@ CREATE TABLE IF NOT EXISTS city (
 )CHARSET=utf8 ENGINE=InnoDB;
 
 --
--- 表的结构    area
+--     区域表结构    area
 --
 
 DROP TABLE IF EXISTS area;

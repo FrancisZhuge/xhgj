@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class LoginController {
     @RequestMapping("/login")
     @ResponseBody
-    public String login(@RequestParam("")){
-
+    public String login(@RequestParam("username") String username){
+        return null;
     }
 }
